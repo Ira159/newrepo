@@ -1,0 +1,440 @@
+ira@ira-VirtualBox:~/newrepo$ bash.sh
+bash.sh: команда не найдена
+ira@ira-VirtualBox:~/newrepo$ ./bash.sh
+bash: ./bash.sh: Отказано в доступе
+ira@ira-VirtualBox:~/newrepo$ ls -la
+итого 16
+drwxrwxr-x  3 ira ira 4096 сен  3 18:26 .
+drwxr-xr-x 22 ira ira 4096 сен  3 18:26 ..
+-rw-rw-r--  1 ira ira   32 сен  3 18:26 bash.sh
+drwxrwxr-x  8 ira ira 4096 сен  3 18:26 .git
+ira@ira-VirtualBox:~/newrepo$ id
+uid=1000(ira) gid=1000(ira) группы=1000(ira),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)
+ira@ira-VirtualBox:~/newrepo$ id root
+uid=0(root) gid=0(root) группы=0(root)
+ira@ira-VirtualBox:~/newrepo$ chmod u+x,g+x,o+x bash.sh
+ira@ira-VirtualBox:~/newrepo$ ls -la
+итого 16
+drwxrwxr-x  3 ira ira 4096 сен  3 18:26 .
+drwxr-xr-x 22 ira ira 4096 сен  3 18:26 ..
+-rwxrwxr-x  1 ira ira   32 сен  3 18:26 bash.sh
+drwxrwxr-x  8 ira ira 4096 сен  3 18:26 .git
+ira@ira-VirtualBox:~/newrepo$ ./bash.sh
+Hello World!
+ira@ira-VirtualBox:~/newrepo$ ./bash.sh
+Hello World!
+ira@ira-VirtualBox:~/newrepo$ git status
+На ветке master
+Ваша ветка обновлена в соответствии с «origin/master».
+
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>…», чтобы добавить файл в индекс)
+  (use "git restore <file>..." to discard changes in working directory)
+	изменено:      bash.sh
+
+нет изменений добавленных для коммита
+(используйте «git add» и/или «git commit -a»)
+ira@ira-VirtualBox:~/newrepo$ git --help
+использование: git [--version] [--help] [-C <путь>] [-c <имя>=<значение>]
+           [--exec-path[=<путь>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<путь>] [--work-tree=<путь>] [--namespace=<имя>]
+           <команда> [<аргументы>]
+
+Стандартные команды Git используемые в различных ситуациях:
+
+создание рабочей области (смотрите также: git help tutorial)
+   clone             Клонирование репозитория в новый каталог
+   init              Создание пустого репозитория Git или переинициализация существующего
+
+работа с текущими изменениями (смотрите также: git help everyday)
+   add               Добавление содержимого файла в индекс
+   mv                Перемещение или переименование файла, каталога или символьной ссылки
+   restore           Restore working tree files
+   rm                Удаление файлов из рабочего каталога и индекса
+   sparse-checkout   Initialize and modify the sparse-checkout
+
+просмотр истории и текущего состояния (смотрите также: git help revisions)
+   bisect            Выполнение двоичного поиска коммита, который вносит ошибку
+   diff              Вывод разницы между коммитами, коммитом и рабочим каталогом и т.д.
+   grep              Вывод строк, соответствующих шаблону
+   log               Вывод истории коммитов
+   show              Вывод различных типов объектов
+   status            Вывод состояния рабочего каталога
+
+выращивание, отметка и настройка вашей общей истории
+   branch            Вывод списка, создание или удаление веток
+   commit            Запись изменений в репозиторий
+   merge             Объединение одной или нескольких историй разработки вместе
+   rebase            Повторное применение коммитов над верхушкой другой ветки
+   reset             Сброс текущего состояния HEAD на указанное состояние
+   switch            Switch branches
+   tag               Создание, вывод списка, удаление или проверка метки, подписанной с помощью GPG
+
+совместная работа (смотрите также: git help workflows)
+   fetch             Загрузка объектов и ссылок из другого репозитория
+   pull              Извлечение изменений и объединение с другим репозиторием или локальной веткой
+   push              Обновление внешних ссылок и связанных объектов
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+ira@ira-VirtualBox:~/newrepo$ git show
+commit 6d4b8a0e92fa966a1fc8988b5a1b075782da21d8 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ira159 <70705135+Ira159@users.noreply.github.com>
+Date:   Thu Sep 3 17:01:43 2020 +0300
+
+    Create bash.sh
+
+diff --git a/bash.sh b/bash.sh
+new file mode 100644
+index 0000000..67464fb
+--- /dev/null
++++ b/bash.sh
+@@ -0,0 +1,2 @@
++#!/bin/bash
++echo "Hello World!"
+ira@ira-VirtualBox:~/newrepo$ vi bash.sh 
+ira@ira-VirtualBox:~/newrepo$ cat bash.sh 
+#!/bin/bash
+echo "Hello World!"
+echo "My name is Ira :)"
+
+ira@ira-VirtualBox:~/newrepo$ git show
+commit 6d4b8a0e92fa966a1fc8988b5a1b075782da21d8 (HEAD -> master, origin/master, origin/HEAD)
+Author: Ira159 <70705135+Ira159@users.noreply.github.com>
+Date:   Thu Sep 3 17:01:43 2020 +0300
+
+    Create bash.sh
+
+diff --git a/bash.sh b/bash.sh
+new file mode 100644
+index 0000000..67464fb
+--- /dev/null
++++ b/bash.sh
+@@ -0,0 +1,2 @@
++#!/bin/bash
++echo "Hello World!"
+ira@ira-VirtualBox:~/newrepo$ ls -la
+итого 16
+drwxrwxr-x  3 ira ira 4096 сен  3 21:37 .
+drwxr-xr-x 22 ira ira 4096 сен  3 21:37 ..
+-rwxrwxr-x  1 ira ira   58 сен  3 21:37 bash.sh
+drwxrwxr-x  8 ira ira 4096 сен  3 21:33 .git
+ira@ira-VirtualBox:~/newrepo$ git commit
+
+*** Пожалуйста, скажите мне кто вы есть.
+
+Запустите
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Ваше Имя"
+
+для указания идентификационных данных аккаунта по умолчанию.
+Пропустите параметр --global для указания данных только для этого репозитория.
+
+fatal: не удалось выполнить автоопределение адреса электронной почты (получено «ira@ira-VirtualBox.(none)»)
+ira@ira-VirtualBox:~/newrepo$ git config --global user.name "70705135+Ira159@users.noreply.github.com"
+ira@ira-VirtualBox:~/newrepo$ git commit
+
+*** Пожалуйста, скажите мне кто вы есть.
+
+Запустите
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Ваше Имя"
+
+для указания идентификационных данных аккаунта по умолчанию.
+Пропустите параметр --global для указания данных только для этого репозитория.
+
+fatal: не удалось выполнить автоопределение адреса электронной почты (получено «ira@ira-VirtualBox.(none)»)
+ira@ira-VirtualBox:~/newrepo$ git config --global user.email "70705135+Ira159@users.noreply.github.com"
+ira@ira-VirtualBox:~/newrepo$ git config --global user.name "Ira159"
+ira@ira-VirtualBox:~/newrepo$ git commit
+На ветке master
+Ваша ветка обновлена в соответствии с «origin/master».
+
+Изменения, которые не в индексе для коммита:
+  (используйте «git add <файл>…», чтобы добавить файл в индекс)
+  (use "git restore <file>..." to discard changes in working directory)
+	изменено:      bash.sh
+
+нет изменений добавленных для коммита
+(используйте «git add» и/или «git commit -a»)
+ira@ira-VirtualBox:~/newrepo$ git add bash.sh 
+ira@ira-VirtualBox:~/newrepo$ git commit
+[master 109f688] My tut dobavili imya devochki
+ 1 file changed, 2 insertions(+)
+ mode change 100644 => 100755 bash.sh
+ira@ira-VirtualBox:~/newrepo$ git push
+Username for 'https://github.com': Ira159
+Password for 'https://Ira159@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/Ira159/newrepo.git/'
+ira@ira-VirtualBox:~/newrepo$ git push
+Username for 'https://github.com': Ira159    
+Password for 'https://Ira159@github.com': 
+Перечисление объектов: 5, готово.
+Подсчет объектов: 100% (5/5), готово.
+Сжатие объектов: 100% (2/2), готово.
+Запись объектов: 100% (3/3), 320 bytes | 320.00 KiB/s, готово.
+Всего 3 (изменения 0), повторно использовано 0 (изменения 0)
+To https://github.com/Ira159/newrepo.git
+   6d4b8a0..109f688  master -> master
+ira@ira-VirtualBox:~/newrepo$ cd .git
+ira@ira-VirtualBox:~/newrepo/.git$ ls -ls
+итого 48
+4 drwxrwxr-x  2 ira ira 4096 сен  3 18:26 branches
+4 -rw-rw-r--  1 ira ira  556 сен  3 21:42 COMMIT_EDITMSG
+4 -rw-rw-r--  1 ira ira  262 сен  3 18:26 config
+4 -rw-rw-r--  1 ira ira   73 сен  3 18:26 description
+4 -rw-rw-r--  1 ira ira   23 сен  3 18:26 HEAD
+4 drwxrwxr-x  2 ira ira 4096 сен  3 18:26 hooks
+4 -rw-rw-r--  1 ira ira  137 сен  3 21:41 index
+4 drwxrwxr-x  2 ira ira 4096 сен  3 18:26 info
+4 drwxrwxr-x  3 ira ira 4096 сен  3 18:26 logs
+4 drwxrwxr-x 10 ira ira 4096 сен  3 21:42 objects
+4 -rw-rw-r--  1 ira ira  114 сен  3 18:26 packed-refs
+4 drwxrwxr-x  5 ira ira 4096 сен  3 18:26 refs
+ira@ira-VirtualBox:~/newrepo/.git$ ls -la
+итого 56
+drwxrwxr-x  8 ira ira 4096 сен  3 21:42 .
+drwxrwxr-x  3 ira ira 4096 сен  3 21:37 ..
+drwxrwxr-x  2 ira ira 4096 сен  3 18:26 branches
+-rw-rw-r--  1 ira ira  556 сен  3 21:42 COMMIT_EDITMSG
+-rw-rw-r--  1 ira ira  262 сен  3 18:26 config
+-rw-rw-r--  1 ira ira   73 сен  3 18:26 description
+-rw-rw-r--  1 ira ira   23 сен  3 18:26 HEAD
+drwxrwxr-x  2 ira ira 4096 сен  3 18:26 hooks
+-rw-rw-r--  1 ira ira  137 сен  3 21:41 index
+drwxrwxr-x  2 ira ira 4096 сен  3 18:26 info
+drwxrwxr-x  3 ira ira 4096 сен  3 18:26 logs
+drwxrwxr-x 10 ira ira 4096 сен  3 21:42 objects
+-rw-rw-r--  1 ira ira  114 сен  3 18:26 packed-refs
+drwxrwxr-x  5 ira ira 4096 сен  3 18:26 refs
+ira@ira-VirtualBox:~/newrepo/.git$ cd branches/
+ira@ira-VirtualBox:~/newrepo/.git/branches$ ls -la
+итого 8
+drwxrwxr-x 2 ira ira 4096 сен  3 18:26 .
+drwxrwxr-x 8 ira ira 4096 сен  3 21:42 ..
+ira@ira-VirtualBox:~/newrepo/.git/branches$ cd ..
+ira@ira-VirtualBox:~/newrepo/.git$ ls -la
+итого 56
+drwxrwxr-x  8 ira ira 4096 сен  3 21:42 .
+drwxrwxr-x  3 ira ira 4096 сен  3 21:37 ..
+drwxrwxr-x  2 ira ira 4096 сен  3 18:26 branches
+-rw-rw-r--  1 ira ira  556 сен  3 21:42 COMMIT_EDITMSG
+-rw-rw-r--  1 ira ira  262 сен  3 18:26 config
+-rw-rw-r--  1 ira ira   73 сен  3 18:26 description
+-rw-rw-r--  1 ira ira   23 сен  3 18:26 HEAD
+drwxrwxr-x  2 ira ira 4096 сен  3 18:26 hooks
+-rw-rw-r--  1 ira ira  137 сен  3 21:41 index
+drwxrwxr-x  2 ira ira 4096 сен  3 18:26 info
+drwxrwxr-x  3 ira ira 4096 сен  3 18:26 logs
+drwxrwxr-x 10 ira ira 4096 сен  3 21:42 objects
+-rw-rw-r--  1 ira ira  114 сен  3 18:26 packed-refs
+drwxrwxr-x  5 ira ira 4096 сен  3 18:26 refs
+ira@ira-VirtualBox:~/newrepo/.git$ cat config 
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "origin"]
+	url = https://github.com/Ira159/newrepo.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+ira@ira-VirtualBox:~/newrepo/.git$ cd logs/
+ira@ira-VirtualBox:~/newrepo/.git/logs$ ls -la
+итого 16
+drwxrwxr-x 3 ira ira 4096 сен  3 18:26 .
+drwxrwxr-x 8 ira ira 4096 сен  3 21:42 ..
+-rw-rw-r-- 1 ira ira  368 сен  3 21:42 HEAD
+drwxrwxr-x 4 ira ira 4096 сен  3 18:26 refs
+ira@ira-VirtualBox:~/newrepo/.git/logs$ cat refs/
+heads/   remotes/ 
+ira@ira-VirtualBox:~/newrepo/.git/logs$ cat refs/heads/master 
+0000000000000000000000000000000000000000 6d4b8a0e92fa966a1fc8988b5a1b075782da21d8 ira <ira@ira-VirtualBox.(none)> 1599146785 +0300	clone: from https://github.com/Ira159/newrepo.git
+6d4b8a0e92fa966a1fc8988b5a1b075782da21d8 109f6881a3ee33ce732548a806b9c28192b0f9e2 Ira159 <70705135+Ira159@users.noreply.github.com> 1599158473 +0300	commit: My tut dobavili imya devochki
+ira@ira-VirtualBox:~/newrepo/.git/logs$ cd ..
+ira@ira-VirtualBox:~/newrepo/.git$ cd ..
+ira@ira-VirtualBox:~/newrepo$ ls 
+bash.sh
+ira@ira-VirtualBox:~/newrepo$ ls -a
+.  ..  bash.sh  .git
+ira@ira-VirtualBox:~/newrepo$ ./bash.sh 
+Hello World!
+My name is Ira :)
+ira@ira-VirtualBox:~/newrepo$ ./bash.sh 
+Hello World!
+My name is Ira :)
+ira@ira-VirtualBox:~/newrepo$ vi bash.sh 
+ira@ira-VirtualBox:~/newrepo$ vi bash.sh 
+ira@ira-VirtualBox:~/newrepo$ cat bash.sh 
+#!/bin/bash
+echo "Hello World!"
+echo "My name is Ira :)"
+echo "I will get a tester job"
+
+ira@ira-VirtualBox:~/newrepo$ git add bash.sh 
+ira@ira-VirtualBox:~/newrepo$ git commit
+[master 50d226f] my dobavili pro rabotu testerom
+ 1 file changed, 1 insertion(+)
+ira@ira-VirtualBox:~/newrepo$ git merge
+Уже обновлено.
+ira@ira-VirtualBox:~/newrepo$ vi bash.sh 
+ira@ira-VirtualBox:~/newrepo$ git add bash.sh 
+ira@ira-VirtualBox:~/newrepo$ git merge
+Уже обновлено.
+ira@ira-VirtualBox:~/newrepo$ git commit
+[master 03a22c6] kak dela
+ 1 file changed, 1 insertion(+)
+ira@ira-VirtualBox:~/newrepo$ git checkout 
+Ваша ветка опережает «origin/master» на 2 коммита.
+  (используйте «git push», чтобы опубликовать ваши локальные коммиты)
+ira@ira-VirtualBox:~/newrepo$ git push
+Username for 'https://github.com': Ira159
+Password for 'https://Ira159@github.com': 
+Перечисление объектов: 8, готово.
+Подсчет объектов: 100% (8/8), готово.
+Сжатие объектов: 100% (4/4), готово.
+Запись объектов: 100% (6/6), 573 bytes | 573.00 KiB/s, готово.
+Всего 6 (изменения 1), повторно использовано 0 (изменения 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/Ira159/newrepo.git
+   109f688..03a22c6  master -> master
+ira@ira-VirtualBox:~/newrepo$ git checkout
+Ваша ветка обновлена в соответствии с «origin/master».
+ira@ira-VirtualBox:~/newrepo$ cd ..
+ira@ira-VirtualBox:~$ cd newrepo/
+ira@ira-VirtualBox:~/newrepo$ git branch 
+* master
+ira@ira-VirtualBox:~/newrepo$ git branch novaya_vetka
+ira@ira-VirtualBox:~/newrepo$ git branch 
+* master
+  novaya_vetka
+ira@ira-VirtualBox:~/newrepo$ git checkout novaya_vetka 
+Переключено на ветку «novaya_vetka»
+ira@ira-VirtualBox:~/newrepo$ git branch 
+  master
+* novaya_vetka
+ira@ira-VirtualBox:~/newrepo$ echo "Haha ya novyi failik" > newfile.sh
+ira@ira-VirtualBox:~/newrepo$ ls -la
+итого 20
+drwxrwxr-x  3 ira ira 4096 сен  3 22:28 .
+drwxr-xr-x 22 ira ira 4096 сен  3 22:23 ..
+-rwxrwxr-x  1 ira ira  106 сен  3 22:23 bash.sh
+drwxrwxr-x  8 ira ira 4096 сен  3 22:27 .git
+-rw-rw-r--  1 ira ira   21 сен  3 22:28 newfile.sh
+ira@ira-VirtualBox:~/newrepo$ chmod +x newfile.sh 
+ira@ira-VirtualBox:~/newrepo$ ll
+итого 20
+drwxrwxr-x  3 ira ira 4096 сен  3 22:28 ./
+drwxr-xr-x 22 ira ira 4096 сен  3 22:23 ../
+-rwxrwxr-x  1 ira ira  106 сен  3 22:23 bash.sh*
+drwxrwxr-x  8 ira ira 4096 сен  3 22:27 .git/
+-rwxrwxr-x  1 ira ira   21 сен  3 22:28 newfile.sh*
+ira@ira-VirtualBox:~/newrepo$ cat newfile.sh 
+Haha ya novyi failik
+ira@ira-VirtualBox:~/newrepo$ git add newfile.sh 
+ira@ira-VirtualBox:~/newrepo$ git branch 
+  master
+* novaya_vetka
+ira@ira-VirtualBox:~/newrepo$ git commit 
+[novaya_vetka e56cd6b] my dobavili novyi failik v ramkah novoi vetki
+ 1 file changed, 1 insertion(+)
+ create mode 100755 newfile.sh
+ira@ira-VirtualBox:~/newrepo$ echo "privetiki" >> newfile.sh
+ira@ira-VirtualBox:~/newrepo$ git add newfile.sh 
+ira@ira-VirtualBox:~/newrepo$ git commit
+[novaya_vetka eaad3d5] izmenili failik v ramkah novoy vetki
+ 1 file changed, 1 insertion(+)
+ira@ira-VirtualBox:~/newrepo$ git merge
+fatal: У текущей ветки нет внешнего репозитория.
+ira@ira-VirtualBox:~/newrepo$ git merge novaya_vetka 
+Уже обновлено.
+ira@ira-VirtualBox:~/newrepo$ git push novaya_vetka
+fatal: 'novaya_vetka' does not appear to be a git repository
+fatal: Не удалось прочитать из внешнего репозитория.
+
+Удостоверьтесь, что у вас есть необходимые права доступа
+и репозиторий существует.
+ira@ira-VirtualBox:~/newrepo$ git push -u novaya_vetka
+fatal: 'novaya_vetka' does not appear to be a git repository
+fatal: Не удалось прочитать из внешнего репозитория.
+
+Удостоверьтесь, что у вас есть необходимые права доступа
+и репозиторий существует.
+ira@ira-VirtualBox:~/newrepo$ git merge origin/master ^C
+ira@ira-VirtualBox:~/newrepo$ git branch
+  master
+* novaya_vetka
+ira@ira-VirtualBox:~/newrepo$ git merge origin/master 
+Уже обновлено.
+ira@ira-VirtualBox:~/newrepo$ git branch master 
+fatal: Ветка с именем «master» уже существует.
+ira@ira-VirtualBox:~/newrepo$ git branch 
+  master
+* novaya_vetka
+ira@ira-VirtualBox:~/newrepo$ git checkout master
+Переключено на ветку «master»
+Ваша ветка обновлена в соответствии с «origin/master».
+ira@ira-VirtualBox:~/newrepo$ git branch 
+* master
+  novaya_vetka
+ira@ira-VirtualBox:~/newrepo$ ls -la
+итого 16
+drwxrwxr-x  3 ira ira 4096 сен  3 22:45 .
+drwxr-xr-x 22 ira ira 4096 сен  3 22:23 ..
+-rwxrwxr-x  1 ira ira  106 сен  3 22:23 bash.sh
+drwxrwxr-x  8 ira ira 4096 сен  3 22:45 .git
+ira@ira-VirtualBox:~/newrepo$ git checkout novaya_vetka 
+Переключено на ветку «novaya_vetka»
+ira@ira-VirtualBox:~/newrepo$ ls -la
+итого 20
+drwxrwxr-x  3 ira ira 4096 сен  3 22:46 .
+drwxr-xr-x 22 ira ira 4096 сен  3 22:23 ..
+-rwxrwxr-x  1 ira ira  106 сен  3 22:23 bash.sh
+drwxrwxr-x  8 ira ira 4096 сен  3 22:46 .git
+-rwxrwxr-x  1 ira ira   31 сен  3 22:46 newfile.sh
+ira@ira-VirtualBox:~/newrepo$ git checkout master
+Переключено на ветку «master»
+Ваша ветка обновлена в соответствии с «origin/master».
+ira@ira-VirtualBox:~/newrepo$ git merge novaya_vetka 
+Обновление 03a22c6..eaad3d5
+Fast-forward
+ newfile.sh | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100755 newfile.sh
+ira@ira-VirtualBox:~/newrepo$ ls -la
+итого 20
+drwxrwxr-x  3 ira ira 4096 сен  3 22:46 .
+drwxr-xr-x 22 ira ira 4096 сен  3 22:23 ..
+-rwxrwxr-x  1 ira ira  106 сен  3 22:23 bash.sh
+drwxrwxr-x  8 ira ira 4096 сен  3 22:46 .git
+-rwxrwxr-x  1 ira ira   31 сен  3 22:46 newfile.sh
+ira@ira-VirtualBox:~/newrepo$ git branch
+* master
+  novaya_vetka
+ira@ira-VirtualBox:~/newrepo$ cat newfile.sh 
+Haha ya novyi failik
+privetiki
+ira@ira-VirtualBox:~/newrepo$ git push
+Username for 'https://github.com': Ira159
+Password for 'https://Ira159@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/Ira159/newrepo.git/'
+ira@ira-VirtualBox:~/newrepo$ git push
+Username for 'https://github.com': Ira159
+Password for 'https://Ira159@github.com': 
+Перечисление объектов: 7, готово.
+Подсчет объектов: 100% (7/7), готово.
+Сжатие объектов: 100% (4/4), готово.
+Запись объектов: 100% (6/6), 634 bytes | 634.00 KiB/s, готово.
+Всего 6 (изменения 0), повторно использовано 0 (изменения 0)
+To https://github.com/Ira159/newrepo.git
+   03a22c6..eaad3d5  master -> master
+
